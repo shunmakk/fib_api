@@ -26,7 +26,7 @@ app.get(
         //reqからクエリパラメータnを取得して、キャストした文字列を整数に変換する
         const n = parseInt(req.query.n as string);
         //レスポンスを返す
-        if(isNaN(n)){
+        if(isNaN(n) || n <= 0){
         res.status(400).json({ status:400 , message: 'Bad request'})
         } else {
             try{
