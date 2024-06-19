@@ -5,9 +5,9 @@ const port =  process.env.PORT || 3000;
 
 
 //フィボナッチ数のアルゴリズムを作成する
-const FibonacciNumber =  (n:number) => {
+export const FibonacciNumber =  (n:number) => {
     if(n <= 0){
-        throw new Error('エラー');
+        throw new Error('数値が0以下だから処理できないです');
     } else if(n === 1 || n === 2){
         return 1;
     } else {
@@ -40,6 +40,9 @@ app.get(
     }
 )
 
-app.listen(port, () => {
-    console.log(`ポート番号${port}`);
-})
+if (require.main === module) {
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
+    });
+  }
+
