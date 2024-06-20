@@ -23,7 +23,7 @@ export const FibonacciNumber =  (n:number) => {
 //こっちはJSON形式で返すためのapi (n=103を超えると正常に計算できなくなる課題がある）
 app.get(
     '/fib', (req: Request, res: Response) => {
-        //reqからクエリパラメータnを取得して、キャストした文字列を整数に変換する
+        //クエリパラメータnを取得して、キャストした文字列を整数に変換する
         const n = parseInt(req.query.n as string);
         //レスポンスを返す
         if(isNaN(n) || n <= 0){

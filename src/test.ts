@@ -25,7 +25,7 @@ app.get(
 )
 
 
-describe('nの数によるケース', () => {
+describe('成功するケース', () => {
 
 let server:any;
 
@@ -60,10 +60,16 @@ let server:any;
         expect(res.status).toBe(200);
         expect(res.body.result).toBe(354224848179262000000);
       });
+
+    it('nが1000の場合', async () => {
+        const res = await request(app).get('/fib?n=1000');
+        expect(res.status).toBe(200);
+        expect(res.body.result).toBe(4.346655768693743e+208);
+      });
 });
 
 
-describe('エラーケース', () => {
+describe('エラーになるケース', () => {
 
     let server:any;
 
@@ -73,6 +79,18 @@ describe('エラーケース', () => {
 
       afterAll((done) => {
         server.close(done);
+      });
+
+      it('文字列を入力した場合',  async () => {
+        const res = await request(app).get('/fib?n=kajioka');
+        expect(res.status).toBe(400);
+        expect(res.body.message).toBe('Bad request');
+      })
+
+      it('負の数を入力した場合', async () => {
+        const res = await request(app).get('/fib?n=-5');
+        expect(res.status).toBe(400);
+        expect(res.body.message).toBe('Bad request');
       });
 
     });
