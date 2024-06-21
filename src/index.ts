@@ -27,7 +27,9 @@ app.get(
         const n = parseInt(req.query.n as string);
         //レスポンスを返す
         if(isNaN(n) || n <= 0){
-        res.status(400).json({ status:400 , message: 'Bad request'})
+            res.status(400).json({ status:400 , message: 'Bad request'})
+        }else if (n >= 103) {
+            res.status(400).json({ status: 400, message: 'nを103以下にしてください' });
         } else {
             try{
                 const CorrectResult = FibonacciNumber(n);
@@ -46,3 +48,4 @@ if (require.main === module) {
     });
   }
 
+export default app;
