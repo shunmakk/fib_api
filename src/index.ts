@@ -4,7 +4,7 @@ const app = express();
 const port =  process.env.PORT || 3000;
 
 
-//フィボナッチ数のアルゴリズムを作成する
+//フィボナッチ数のアルゴリズムを作成
 export const FibonacciNumber =  (n:number) => {
     if(n <= 0){
         throw new Error('数値が0以下だから処理できないです');
@@ -20,7 +20,7 @@ export const FibonacciNumber =  (n:number) => {
     }
 }
 
-//こっちはJSON形式で返すためのapi (n=103を超えると正常に計算できなくなる課題がある）
+//こっちはJSON形式で返すためのAPI
 app.get(
     '/fib', (req: Request, res: Response) => {
         //クエリパラメータnを取得して、キャストした文字列を整数に変換する
