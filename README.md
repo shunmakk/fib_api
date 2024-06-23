@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # フィボナッチ数を返すAPIサービスの開発 
 ## サービスURL
 こちらのURLから確認することができます   https://fib-api-bn62.onrender.com/
