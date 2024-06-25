@@ -180,28 +180,28 @@ GET /fibエンドポイントに対するリクエストを送信し、期待さ
 ### nが103を超えると正常に数値がでない
 nが103にするとresultが9007199254740991を超える。javascriptのnumber型は9007199254740991を超えると正常な数値が出せなくなる
 ###### 今回の解決策
-n <= 103の場合は４００エラー+メッセージを表示。
+n >= 103の場合は４００エラー+メッセージを表示。
 （BigIntを使う手もあった）
 ### テストが完了した後も非同期操作が続いている件を解決
 テストスクリプトでサーバーのインスタンスを管理するように変更した。具体的には、beforeAllフックでサーバーを起動し、afterAllフックでサーバーを停止する作業を行なった。
 
 ## 参考にしたサイト
-https://tech.012grp.co.jp/entry/rest_api_basics
+[REST APIとは？ざっくりと理解してみる【初心者向け】](https://tech.012grp.co.jp/entry/rest_api_basics)
 
-https://utano.jp/entry/2018/02/hello-typescript-tsconfig/
+[はじめての TypeScript ( tsconfig.json を使ってみる)](https://utano.jp/entry/2018/02/hello-typescript-tsconfig/)
 
-https://qiita.com/suzuki0430/items/403984045d3bc0be2f24
+[【アルゴリズム】JavaScriptでフィボナッチ数列問題を解く](https://qiita.com/suzuki0430/items/403984045d3bc0be2f24)
 
-https://note.com/strictlyes/n/n8ed7f6b7068f
+[【アルゴリズム】フィボナッチ数列をjavascriptで実装する](https://note.com/strictlyes/n/n8ed7f6b7068f)
 
-https://sbfl.net/blog/2018/06/18/javascript-bigint/
+[JavaScriptのBigIntで任意精度の整数値を扱う](https://sbfl.net/blog/2018/06/18/javascript-bigint/)
 
-https://www.agent-grow.com/self20percent/2019/03/25/only-express-and-jest-testing/
+[express と jest だけでサックリとテストを書く！(superagent とか使わない)](https://www.agent-grow.com/self20percent/2019/03/25/only-express-and-jest-testing/)
 
-https://zenn.dev/kento_mm_ninw/articles/6308dd8cfeb916
+[Supertestを使ったテスト構築方法](https://zenn.dev/kento_mm_ninw/articles/6308dd8cfeb916)
 
-https://zenn.dev/kento_mm_ninw/articles/81549c4ed0ee12
+[describe - test 構文の書き方](https://zenn.dev/kento_mm_ninw/articles/81549c4ed0ee12)
 
-https://stackoverflow.com/questions/53935108/jest-did-not-exit-one-second-after-the-test-run-has-completed-using-express
+[Jest did not exit one second after the test run has completed using express](https://stackoverflow.com/questions/53935108/jest-did-not-exit-one-second-after-the-test-run-has-completed-using-express)
 
 
