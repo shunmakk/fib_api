@@ -1,7 +1,8 @@
 
 # フィボナッチ数を返すAPIサービスの開発 
 ## サービスURL
-こちらのURLから確認することができます   https://fib-api-bn62.onrender.com/
+こちらのURLから確認することができます  （開くのに数分時間を要する）
+https://fib-api-bn62.onrender.com/
 
 ## 概要
 このアプリケーションは指定されたn番目のフィボナッチ数を計算するシンプルなREST APIです。<br>
