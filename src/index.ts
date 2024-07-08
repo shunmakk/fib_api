@@ -8,13 +8,16 @@ const port =  process.env.PORT || 3000;
 app.get(
     '/fib', (req: Request, res: Response) => {
         //クエリパラメータnを取得して、キャストした文字列を整数に変換する
-        const n = parseInt(req.query.n as string);
+        const n = parseFloat(req.query.n as string);
         //レスポンスを返す
         if(isNaN(n) || n <= 0){
             res.status(400).json({ status:400 , message: 'Bad request'})
         }else if (n >= 103) {
             res.status(400).json({ status: 400, message: 'nを103以下にしてください' });
-        } else {
+        }else if(!Number.isInteger(n)){
+            res.status(400).json({ status: 400, message: 'nに小数点を含めないでください' });
+        }
+        else {
             try{
                 const CorrectResult = FibonacciNumber(n);
                 res.json({ "result" : CorrectResult})
