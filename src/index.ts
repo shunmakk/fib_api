@@ -7,10 +7,20 @@ const port =  process.env.PORT || 3000;
 //JSON形式で返すためのAPI
 app.get(
     '/fib', (req: Request, res: Response) => {
-        //クエリパラメータnを取得して、キャストした文字列を整数に変換する
-        const n = parseFloat(req.query.n as string);
+      // クエリパラメータ n を取得して、数値として解釈できない場合はエラー
+      const nString = req.query.n as string;
+      // 数値を表す正規表現パターン
+      const numberPattern = /^[+-]?(?:\d+\.?\d*|\.\d+)$/
+      // 文字列が有効な数値表現であるかを確認する
+      if (!numberPattern.test(nString)) {
+        res.status(400).json({ status: 400, message: '正しい数値を入力してください' });
+        return;
+     }
+
+       const n = parseFloat(nString);
+
         //レスポンスを返す
-        if(isNaN(n) || n <= 0){
+        if(!Number.isFinite(n) ||isNaN(n) || n <= 0){
             res.status(400).json({ status:400 , message: 'Bad request'})
         }else if (n >= 103) {
             res.status(400).json({ status: 400, message: 'nを103以下にしてください' });
