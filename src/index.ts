@@ -35,8 +35,8 @@ app.get(
                 const CorrectResult = FibonacciNumber(n);
                 res.json({ "result" : CorrectResult})
             }
-            catch(e){
-                res.status(400).json({status:400})
+            catch(e:any){
+                res.status(400).json({status:400 , message: e.message})
             }
         }
     }

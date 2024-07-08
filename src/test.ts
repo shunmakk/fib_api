@@ -7,7 +7,7 @@ import app from '.';
 
 describe('成功するケース', () => {
 
-let server:any;
+  let server:any;
 
   beforeAll((done) => {
     server = app.listen(4000, done);
